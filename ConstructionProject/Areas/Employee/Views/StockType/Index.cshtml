@@ -1,0 +1,38 @@
+﻿
+
+
+@{
+	ViewData["Title"] = "Stock Type";
+}
+
+
+<div class="container mb-4 mt-5">
+	<div class="row">
+		<div class="col-6">
+			<h2>Stock Types</h2>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-primary" asp-area="Employee" asp-controller="StockType" asp-action="Add">Add Stock Type</a>
+		</div>
+	</div>
+</div>
+
+<table id="stockTypeTable" class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>Stock Name</th>
+			<th>Stock Unit</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+
+</table>
+
+
+@section scripts{
+
+	<script src="/js/StockType.js"></script>
+
+}

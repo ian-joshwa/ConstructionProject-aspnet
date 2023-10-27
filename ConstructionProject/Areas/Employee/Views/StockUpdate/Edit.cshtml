@@ -1,0 +1,70 @@
+﻿
+@model Construction.Models.ViewModels.StockUpdatesVM
+
+@{
+	ViewData["Title"] = "Stock Update";
+}
+
+<form method="post">
+	<div class="border p-4">
+		<div class="row p-3 mb-3">
+			<h2>Edit Stock Update</h2>
+			<hr />
+		</div>
+		<div class="row mb-3">
+			<input asp-for="StockUpdate.Id" type="hidden" />
+			<label asp-for="StockUpdate.ProjectId">Project</label>
+			<select asp-for="StockUpdate.ProjectId" asp-items="@Model.Projects" class="form-control">
+
+			</select>
+			<span asp-validation-for="StockUpdate.ProjectId" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.Date">Date</label>
+			<input asp-for="StockUpdate.Date" type="datetime" value="@DateTime.Now" class="form-control" disabled />
+			<span asp-validation-for="StockUpdate.Date" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.StockType">Stock Type</label>
+			<select asp-for="StockUpdate.StockType" asp-items="@Model.StockType" class="form-control">
+			</select>
+			<span asp-validation-for="StockUpdate.StockType" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.Old">Old Stock</label>
+			<input asp-for="StockUpdate.Old" class="form-control" value="@Model.StockUpdate.Old"/>
+			<span asp-validation-for="StockUpdate.Old" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.New">New Stock</label>
+			<input asp-for="StockUpdate.New" class="form-control" value="@Model.StockUpdate.New" />
+			<span asp-validation-for="StockUpdate.New" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.Used">Used Stock</label>
+			<input asp-for="StockUpdate.Used" class="form-control" value="@Model.StockUpdate.Used" />
+			<span asp-validation-for="StockUpdate.Used" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="StockUpdate.Remaining">Remaining Stock</label>
+			<input asp-for="StockUpdate.Remaining" class="form-control" value="@Model.StockUpdate.Remaining" />
+			<span asp-validation-for="StockUpdate.Remaining" class="text-danger"></span>
+		</div>
+
+		<button class="btn btn-success" type="submit">Update</button>
+		<a asp-area="Employee" asp-controller="StockUpdate" asp-action="Index" class="btn btn-dark">Back To List</a>
+	</div>
+</form>
+
+
+@section scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

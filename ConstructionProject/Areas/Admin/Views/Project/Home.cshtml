@@ -1,0 +1,37 @@
+﻿
+
+@{
+	ViewData["Title"] = "Projects";
+}
+
+
+<div class="container mb-4 mt-5">
+	<div class="row">
+		<div class="col-6">
+			<h2>Projects</h2>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-primary" asp-area="Admin" asp-controller="Project" asp-action="Add">Add Project</a>
+		</div>
+	</div>
+</div>
+
+<table id="projectTable" class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>Project Name</th>
+			<th>Address</th>
+			<th>Is Public</th>
+			<th>Is Featured</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+
+</table>
+
+
+@section scripts{
+	<script src="/js//Projects.js"></script>
+}

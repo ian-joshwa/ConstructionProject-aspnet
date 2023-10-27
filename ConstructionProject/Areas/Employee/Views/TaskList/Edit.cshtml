@@ -1,0 +1,52 @@
+﻿
+@model Construction.Models.ViewModels.TaskListVM
+
+@{
+	ViewData["Title"] = "Task List";
+}
+
+
+<form method="post">
+	<div class="border p-4">
+		<div class="row p-3 mb-3">
+			<h2>Edit Task</h2>
+			<hr />
+		</div>
+		<div class="row mb-3">
+			<input asp-for="TaskList.Id" type="hidden" />
+			<label asp-for="TaskList.Title">Title</label>
+			<input asp-for="TaskList.Title" class="form-control" value="@Model.TaskList.Title"/>
+			<span asp-validation-for="TaskList.Title" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="TaskList.ProjectId">Project</label>
+			<select asp-for="TaskList.ProjectId" asp-items="@Model.Projects" class="form-control">
+			</select>
+			<span asp-validation-for="TaskList.ProjectId" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="TaskList.Description">Task Description</label>
+			<textarea asp-for="TaskList.Description" class="form-control">@Model.TaskList.Description</textarea>
+			<span asp-validation-for="TaskList.Description" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="TaskList.Status">Status</label>
+			<select asp-for="TaskList.Status" asp-items="@Model.Status" class="form-control">
+			</select>
+			<span asp-validation-for="TaskList.Status" class="text-danger"></span>
+		</div>
+
+		<button class="btn btn-success" type="submit">Update</button>
+		<a asp-area="Employee" asp-controller="TaskList" asp-action="Index" class="btn btn-dark">Back To List</a>
+	</div>
+</form>
+
+
+@section scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

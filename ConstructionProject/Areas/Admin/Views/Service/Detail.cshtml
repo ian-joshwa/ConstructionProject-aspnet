@@ -1,0 +1,33 @@
+﻿@model Construction.Models.ViewModels.ServiceVM
+
+
+@{
+	ViewData["Title"] = Model.Service.Name;
+}
+
+<style>
+
+	.serviceDetail {
+		width: 100%;
+		height: 450px;
+		margin: auto;
+		object-fit: cover;
+	}
+
+	.serviceText {
+		padding-top: 50px;
+	}
+
+</style>
+
+<div class="row mt-5 mb-4">
+
+	<div class="col-6 serviceText">
+		<h1>@Model.Service.Name</h1>
+		<p class="mt-4">@Model.Service.Description</p>
+	</div>
+	<div class="col-6">
+		<img class="serviceDetail" src="@Model.Service.ImageUrl" alt="@Model.Service.Name image" />
+	</div>
+
+</div>

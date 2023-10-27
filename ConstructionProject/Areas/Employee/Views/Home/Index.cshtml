@@ -1,0 +1,109 @@
+﻿@inject Construction.DataAccessLayer.Infrastructure.IRepository.IUnitOfWork unitOfWork
+
+@{
+    ViewData["Title"] = "Home";
+    //var FeaturedServices = unitOfWork.Service.GetAll().Where(x => x.IsFeatured);
+    var FeaturedServices = unitOfWork.Service.FeaturedServices();
+    var FeaturedProjects = unitOfWork.Project.GetFeatured();
+}
+
+<style>
+    .mainHeading {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .des-text {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .des-text p {
+        font-size: 18px;
+    }
+
+    .services,
+    .projects {
+        padding: 80px 0;
+    }
+
+    .serviceHeading,
+    .projectHeading {
+        font-size: 55px;
+        margin: 80px 0;
+        padding-left: 30px;
+    }
+
+    .card {
+        width: 25rem !important;
+        margin: auto;
+    }
+
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="mainHeading">
+    <div>
+        <h1 class="display-4 text-center" style="font-weight: bold;">Construction</h1>
+        <p class="text-center">YOU DECIDE, WE BUILD</p>
+
+    </div>
+</div>
+
+<div class="des-text">
+    <p class="text-center">
+        You Decide, We Build - Overall planning, coordination & control of a project from start to end. MY Construction Team is aimed at meeting client's requirements to produce a functionally & financially viable Projects. While pursuing excellence; we build Trust. Quality. Relationship. MY Construction has developed Business Principles which provide guidelines and expectations for all employees in all business units. Our overall success is based on our business conduct, which requires the highest level of integrity when dealing with our customers, suppliers, local communities and employees.
+    </p>
+</div>
+
+<div class="services">
+    <div class="row">
+        <h1 class="serviceHeading">Services</h1>
+    </div>
+    <div class="row">
+        @foreach(var service in FeaturedServices)
+        {            
+            
+            <div class="col-6 mb-5">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@service.ImageUrl" alt="@service.Name image">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">@service.Name</h5>
+                        @*<p class="card-text">@service.Description</p>*@
+                        <a href="/Admin/Service/Detail/@service.Id" class="btn btn-dark">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<div class="projects">
+    <div class="row">
+        <h1 class="projectHeading">Projects</h1>
+    </div>
+    <div class="row">
+        @foreach (var project in FeaturedProjects)
+        {
+            <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@project.ImageUrl" alt="@project.Name image">
+                    <div class="card-body">
+                        <h5 class="card-title">@project.Name</h5>
+                        <p class="card-text">@project.Address</p>
+                        <a href="/Admin/Project/Detail/@project.Id" class="btn btn-dark">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model Construction.Models.ViewModels.ProjectVM
+
+@{
+	ViewData["Title"] = "Add Project";
+}
+
+<form method="post" enctype="multipart/form-data">
+	<div class="border p-4">
+		<div class="row p-3 mb-3">
+			<h2>Add Project</h2>
+			<hr />
+		</div>
+		<div class="row mb-3">
+			<label asp-for="Project.Name">Project Name</label>
+			<input asp-for="Project.Name" class="form-control" />
+			<span asp-validation-for="Project.Name" class="text-danger"></span>
+		</div>
+		<div class="row mb-3">
+			<label asp-for="Project.Address">Project Address</label>
+			<textarea asp-for="Project.Address" class="form-control"></textarea>
+			<span asp-validation-for="Project.Address" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="Project.NumberOfBathrooms">Number Of Bathrooms</label>
+			<input asp-for="Project.NumberOfBathrooms" class="form-control" />
+			<span asp-validation-for="Project.NumberOfBathrooms" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="Project.NumberOfBedrooms">Number Of Bedrooms</label>
+			<input asp-for="Project.NumberOfBedrooms" class="form-control" />
+			<span asp-validation-for="Project.NumberOfBedrooms" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="Project.ImageUrl">Project Image</label>
+			<input type="file" name="file" asp-for="Project.ImageUrl" class="form-control" />
+			<span asp-validation-for="Project.ImageUrl" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="Project.IsPublic">Is Public</label>
+			<input asp-for="Project.IsPublic" type="checkbox" style="width:18px;height:18px; margin-left:20px;margin-top:8px;" />
+			<span asp-validation-for="Project.IsPublic" class="text-danger"></span>
+		</div>
+
+		<div class="row mb-3">
+			<label asp-for="Project.IsFeatured">Is Featured</label>
+			<input asp-for="Project.IsFeatured" type="checkbox" style="width:18px;height:18px; margin-left:20px;margin-top:8px;" />
+			<span asp-validation-for="Project.IsPublic" class="text-danger"></span>
+		</div>
+
+		<button class="btn btn-success" type="submit">Add</button>
+		<a asp-area="Admin" asp-controller="Project" asp-action="Home" class="btn btn-dark">Back To List</a>
+	</div>
+</form>
+
+
+@section scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

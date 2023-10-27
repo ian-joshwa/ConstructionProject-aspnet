@@ -1,0 +1,35 @@
+﻿@model Construction.Models.ViewModels.ServiceVM
+
+@{
+	ViewData["Title"] = "Services";
+}
+
+<div class="container mb-4 mt-5">
+	<div class="row">
+		<div class="col-6">
+			<h2>Services</h2>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-primary" asp-area="Admin" asp-controller="Service" asp-action="Add">Add Service</a>
+		</div>
+	</div>
+</div>
+
+<table id="serviceTable" class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>Service Name</th>
+			<th>Service Description</th>
+			<th>Is Featured</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+
+</table>
+
+
+@section scripts{
+	<script src="/js/Services.js"></script>
+}

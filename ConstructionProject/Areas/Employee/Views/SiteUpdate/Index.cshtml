@@ -1,0 +1,42 @@
+﻿
+
+
+@{
+	ViewData["Title"] = "Site Updates";
+}
+
+
+<div class="container mb-4 mt-5">
+	<div class="row">
+		<div class="col-6">
+			<h2>Site Updates</h2>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-primary" asp-area="Employee" asp-controller="SiteUpdate" asp-action="Add">Add Site Update</a>
+		</div>
+	</div>
+</div>
+
+<table id="siteUpdateTable" class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>Project Name</th>
+			<th>User</th>
+			<th>Date</th>
+			<th>Number Of Masons</th>
+			<th>Number Of Labours</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+
+</table>
+
+
+@section scripts{
+
+
+	<script src="/js/SiteUpdate.js"></script>
+
+}

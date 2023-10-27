@@ -1,0 +1,42 @@
+﻿
+@model Construction.Models.ViewModels.StockUpdatesVM
+
+@{
+	ViewData["Title"] = "Stock Updates";
+}
+
+
+<div class="container mb-4 mt-5">
+	<div class="row">
+		<div class="col-6">
+			<h2>Stock Updates</h2>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-primary" asp-area="Employee" asp-controller="StockUpdate" asp-action="Add">Add Stock Update</a>
+		</div>
+	</div>
+</div>
+
+<table id="stockUpdateTable" class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>Project Name</th>
+			<th>Date</th>
+			<th>Stock Type</th>
+			<th>Old Stock</th>
+			<th>New Stock</th>
+			<th>Used Stock</th>
+			<th>Remaining Stock</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+
+</table>
+
+@section scripts{
+
+	<script src="/js/StockUpdates.js"></script>
+
+}
